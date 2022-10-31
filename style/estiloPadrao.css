@@ -30,6 +30,7 @@ body {
 #containerPainel{
     background-color: rgb(74 74 255/10%);
     backdrop-filter: blur(5px);
+    border-radius: 20PX;   
     position: center;
     margin: 100px auto 100px auto;
     font-family: Arial;
@@ -121,7 +122,7 @@ li a {
 
 p{
      font-size: 30px;
-     color:black;
+     color: aqua;
      font-family: Arial, Helvetica, sans-serif;
    
  }
