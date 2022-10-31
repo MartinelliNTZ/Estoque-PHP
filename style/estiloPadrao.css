@@ -47,6 +47,13 @@ body {
         align-items: center;
     }
 
+    .input{
+        border-radius: 25px;
+    }
+    .button{
+        border-radius: 25px;
+    }
+
 footer{
     position: fixed;
     top: 90%;

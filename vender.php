@@ -29,18 +29,9 @@
                 <input type="reset" value="Limpar" class="input">
                 <input type="submit" value="Buscar Cadastro">
        
-                <a><BR><BR><BR>PARA ALTERAR SEU NOME OU SEU CPF VOCE PRECISA ENTRAR EMN CONTATO COM NOSSO SUPORTE<BR><BR><BR></a>
-        
+                <a><BR><BR><BR>PARA ALTERAR SEU NOME OU SEU CPF VOCE PRECISA ENTRAR EMN CONTATO COM NOSSO SUPORTE<BR><BR><BR></a>       
             
-            Data de Nascimento: <input type="date"   name="data" > 
-            Formação: <input type="text"  name="forma" > 
-            Endereço: <input type="text"  name="ender" ></p>
            
-            <p>E-mail: <input type="email" name="email">
-            Telefone: <input type="text"  name="tele" >
-            Experiencia: <input type="text" name="expe" > </p>
-            <input type="reset" value="Limpar" id="bt">
-            <input type="submit" value="Alterar Cadastro" id="bt">
             
              
         </form>
