@@ -17,14 +17,14 @@
         <li><a href="about.php">Sobre</a></li>
     </ul>
     <header>
-        <h1 > CONTROLE DE ESTOQUE</h1>
+        <h1 > Adicionar Venda</h1>
     </header>
+
     <main>
         <div id="containerPainel">
 
-            <p>Este é um aplicativo de armazenamento de estoque de bujões de gás</p>
+            <h1 > Desenvolvido por Matheus Martinelli &copy; 2022</h1>
 
-           
         </div>
 
 
@@ -35,5 +35,6 @@
     <footer>
        
     </footer>
-</body>
-</html>
+
+    </body>
+    </html>
