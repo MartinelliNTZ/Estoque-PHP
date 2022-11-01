@@ -61,13 +61,14 @@ body {
         
     }
     .button:hover{
+        background-color: aqua;
         box-shadow: 0.02em 0.02em 0.10em aqua;       
-       
+        color: black;
+          
     }
     .cover:hover{
         text-shadow: 0.02em 0.02em 0.10em aqua;    
-         color: black;
-          
+         
     }
 
 footer{

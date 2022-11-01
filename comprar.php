@@ -36,7 +36,7 @@
         <?php
         if(isset($_POST["quantidade"])){          $quantidade = $_POST["quantidade"];     }       else{       $quantidade = null;     }
         if($quantidade !=null & $quantidade >0){    
-            echo "<p>Vendido<p>";
+            echo "<p>Comprado $quantidade unidades<p>";
         }else if($quantidade <= 0){
             echo "<p>Valor não pode ser negativo</p>";
         }

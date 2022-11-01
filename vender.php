@@ -37,9 +37,18 @@
         <?php
         if(isset($_POST["quantidade"])){          $quantidade = $_POST["quantidade"];     }       else{       $quantidade = null;     }
         if($quantidade !=null & $quantidade >0){    
-            echo "Vendido";
+            echo "<p>Vendido $quantidade unidades<p>";
         }else if($quantidade <= 0){
             echo "<p>Valor não pode ser negativo</p>";
+            $timezone = new DateTimeZone('America/Sao_Paulo');
+            $agora = new DateTime('now', $timezone);
+           
+            $date = new DateTime('2000-01-01');
+            $result = $date->format('Y-m-d H:i:s');
+           
+            $x = $agora.string;
+            echo " Agora é $agora.string +++ $x";
+            
         }
         
         else{
