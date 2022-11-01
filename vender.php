@@ -25,9 +25,9 @@
 
         <form  method ="POST" action="vender.php">
             <p>Produto: Bujão de Gás 13KG MTL-S&A </p> 
-            <p>  Quantidade: <input type="text"  name="quantidade" > </p>         
-                <input type="reset" value="Limpar" class="input">
-                <input type="submit" value="Buscar Cadastro">
+            <p>  Quantidade: <input type="number"  name="quantidade" class="input"> </p>         
+                <input type="reset" value="Limpar" class="button">
+                <input type="submit" value="Vender" class="button">
        
                 <a><BR><BR><BR>PARA ALTERAR SEU NOME OU SEU CPF VOCE PRECISA ENTRAR EMN CONTATO COM NOSSO SUPORTE<BR><BR><BR></a>       
             
@@ -36,12 +36,22 @@
              
         </form>
 
-        </div>
-
-
-
-        
        
+        <?php
+        if(isset($_POST["quantidade"])){          $quantidade = $_POST["quantidade"];     }       else{       $quantidade = null;     }
+        if($quantidade !=null & $quantidade >0){    
+            echo "Vendido";
+        }else if($quantidade <= 0){
+            echo "<p>Valor não pode ser negativo</p>";
+        }
+        
+        else{
+            echo "<p>Por favor insira um valor</p>";
+        }
+
+
+        ?>
+        </div>
     </main>
     <footer>
        
