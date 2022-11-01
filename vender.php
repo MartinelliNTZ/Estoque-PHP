@@ -30,11 +30,7 @@
                 <input type="reset" value="Limpar" class="button">
                 <input type="submit" value="Realizar Venda" class="button">
        
-                <a><BR><BR><BR>PARA ALTERAR SEU NOME OU SEU CPF VOCE PRECISA ENTRAR EMN CONTATO COM NOSSO SUPORTE<BR><BR><BR></a>       
-            
-           
-            
-             
+                
         </form>
 
        

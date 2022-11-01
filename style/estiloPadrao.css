@@ -54,6 +54,20 @@ body {
     }
     .button{
         border-radius: 25px;
+        color: #ffff;
+        background-color: #1100FA;
+        padding: 3px;
+        width: 150px;
+        
+    }
+    .button:hover{
+        box-shadow: 0.02em 0.02em 0.10em aqua;       
+       
+    }
+    .cover:hover{
+        text-shadow: 0.02em 0.02em 0.10em aqua;    
+         color: black;
+          
     }
 
 footer{
@@ -135,11 +149,7 @@ p{
      color: #ffff;
      font-family: Arial, Helvetica, sans-serif;   
 }
-p:hover{
-    text-shadow: 0.02em 0.02em 0.10em aqua;    
-     color: black;
-      
-}
+
 
 ul{
     list-style-type: none;/**//*nÃO SEI*/
