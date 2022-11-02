@@ -32,7 +32,8 @@
        
                 
         </form>
-
+        </div>
+        <div class="containerPainel">
        
         <?php
         if(isset($_POST["quantidade"])){          $quantidade = $_POST["quantidade"];     }       else{       $quantidade = null;     }

@@ -29,12 +29,16 @@
         
         <form  method ="POST" action="comprar.php">
             <p>Produto: Bujão de Gás 13KG MTL-S&A </p> 
-            <p>  Quantidade: <input type="number"  name="quantidade" class="input"> </p>         
+            <p>     Quantidade*:        <input type="number"  name="quantidade" class="input"></p>         
+            <p>     Fornecedor:         <input type="text"  name="fornecedor" class="input"> </p>         
+              <p>   Valor Unitário*: R$  <input type="number"  name="cliente" class="input"> </p> 
+                      
                 <input type="reset" value="Limpar" class="button">
                 <input type="submit" value="Adicionar Compra" class="button">     
                                        
         </form>
-
+        </div>
+        <div class="containerPainel">
        
         <?php
         if(isset($_POST["quantidade"])){          $quantidade = $_POST["quantidade"];     }       else{       $quantidade = null;     }
@@ -74,9 +78,7 @@
 
         ?>
         </div>
-        <div class="containerPainel">
-        <p>  Quantidade: <input type="number"  name="quantidade" class="input"> </p>   
-        </div>
+        
     </main>
     <footer>
        
