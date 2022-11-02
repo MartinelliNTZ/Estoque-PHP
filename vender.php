@@ -37,26 +37,42 @@
         <?php
         if(isset($_POST["quantidade"])){          $quantidade = $_POST["quantidade"];     }       else{       $quantidade = null;     }
         if($quantidade !=null & $quantidade >0){    
-
-
-           
-
-
-
-
-
-
-
-
-            echo "<p>Vendido $quantidade unidades<p>";
-        }else if($quantidade <= 0){
-            echo "<p>Valor não pode ser negativo</p>";
+            include("conecta.php");
+            
             $timezone = new DateTimeZone('America/Sao_Paulo');
             $agora = new DateTime('now', $timezone);        
-            $result = $agora->format('d-m-Y H:i:s');
+            $data = $agora->format('Y-m-d H:i:s');
+            
+
+             
+            $sql = "INSERT INTO estoque_venda (data, quantidade)
+            VALUES ('$data', '$quantidade')";
+
+            
+            
+            if($conn->query($sql) === TRUE) {
+                echo "<p>Vendido $quantidade unidades<p>";
+            } else {
+                echo "<p>Error: " . $sql . "<br>" . $conn->error."</p>";
+            }
+
+
+           
+
+
+
+
+
+
+
+
+            
+        }else if($quantidade <= 0){
+            echo "<p>Valor não pode ser negativo</p>";
+           
            
             
-            echo " Agora é $result";
+           
             
         }
         

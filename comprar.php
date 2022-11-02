@@ -35,8 +35,28 @@
        
         <?php
         if(isset($_POST["quantidade"])){          $quantidade = $_POST["quantidade"];     }       else{       $quantidade = null;     }
-        if($quantidade !=null & $quantidade >0){    
-            echo "<p>Comprado $quantidade unidades<p>";
+        if($quantidade !=null & $quantidade >0){ 
+            include("conecta.php");
+
+            $timezone = new DateTimeZone('America/Sao_Paulo');
+            $agora = new DateTime('now', $timezone);        
+            $data = $agora->format('Y-m-d H:i:s');
+            
+
+             
+            $sql = "INSERT INTO estoque_compra (data, quantidade)
+            VALUES ('$data', '$quantidade')";
+
+            
+            
+            if($conn->query($sql) === TRUE) {
+                echo "<p>Compradas $quantidade unidades<p>";
+            } else {
+                echo "<p>Error: " . $sql . "<br>" . $conn->error."</p>";
+            }
+
+
+
         }else if($quantidade <= 0){
             echo "<p>Valor não pode ser negativo</p>";
         }
