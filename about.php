@@ -22,7 +22,7 @@
     </header>
 
     <main>
-        <div id="containerPainel">
+        <div class="containerPainel">
 
             <h1 > Desenvolvido por Matheus Martinelli &copy; 2022</h1>
 

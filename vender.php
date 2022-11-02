@@ -22,7 +22,7 @@
     </header>
 
     <main>
-        <div id="containerPainel">
+        <div class="containerPainel">
 
         <form  method ="POST" action="vender.php">
             <p>Produto: Bujão de Gás 13KG MTL-S&A </p> 

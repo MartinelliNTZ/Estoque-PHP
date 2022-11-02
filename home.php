@@ -22,7 +22,7 @@
     <h1 > CONTROLE DE ESTOQUE</h1>
     </header>
     <main>
-        <div id="containerPainel">
+        <div class="containerPainel">
 
             <p>Texto aqui</p>
            

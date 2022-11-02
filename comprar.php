@@ -17,13 +17,16 @@
         <li><a href="comprar.php">Compras</a></li>
         <li><a href="about.php">Sobre</a></li>
     </ul>
+   
     <header>
-        <h1 > Adicionar Compra</h1>
+        
+        <h1 >ADICIONAR COMPRA</h1>
     </header>
+    
 
     <main>
-        <div id="containerPainel">
-
+        <div class="containerPainel">
+        
         <form  method ="POST" action="comprar.php">
             <p>Produto: Bujão de Gás 13KG MTL-S&A </p> 
             <p>  Quantidade: <input type="number"  name="quantidade" class="input"> </p>         
@@ -70,6 +73,9 @@
 
 
         ?>
+        </div>
+        <div class="containerPainel">
+        <p>  Quantidade: <input type="number"  name="quantidade" class="input"> </p>   
         </div>
     </main>
     <footer>
