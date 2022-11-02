@@ -23,16 +23,27 @@
         <h1 >ADICIONAR COMPRA</h1>
     </header>
     
+    
 
     <main>
         <div class="containerPainel">
         
         <form  method ="POST" action="comprar.php">
             <p>Produto: Bujão de Gás 13KG MTL-S&A </p> 
-            <p>     Quantidade*:        <input type="number"  name="quantidade" class="input"></p>         
+            <p>     Quantidade*:        <input type="number"  name="quantidade" class="input" min="0" max="10000"></p>         
             <p>     Fornecedor:         <input type="text"  name="fornecedor" class="input"> </p>         
-              <p>   Valor Unitário*: R$  <input type="number"  name="cliente" class="input"> </p> 
-                      
+              <p>   Valor Unitário*: R$  <input type="number"  name="valorUnitario" class="input"> </p> 
+              <label class= "quebra"><p>CPF: </label>
+              <input 
+                    type="text"  
+                    name="cpf" 
+                    class="input"
+                    id = "cpf"
+                    patern="\([0-9]\)[9]{1}[0-9]{4}[-]{1}[0-9]{4}" 
+                    maxlength="14"
+                    placeholder="CPF"
+                    onkeyup="mascara_cpf()"> </p>
+
                 <input type="reset" value="Limpar" class="button">
                 <input type="submit" value="Adicionar Compra" class="button">     
                                        
@@ -83,6 +94,14 @@
     <footer>
        
     </footer>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js">     
+    </script>
+    <script>
+        $("#valorUnitario").mask({
+            prefix: "R$:",
+            decimal: ",",
+            thousands: "."
+        })
+    </script>
     </body>
     </html>
