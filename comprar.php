@@ -37,6 +37,8 @@
         if(isset($_POST["quantidade"])){          $quantidade = $_POST["quantidade"];     }       else{       $quantidade = null;     }
         if($quantidade !=null & $quantidade >0){ 
             include("conecta.php");
+            include("listar.php");
+            $listar = new Listar();
 
             $timezone = new DateTimeZone('America/Sao_Paulo');
             $agora = new DateTime('now', $timezone);        
@@ -51,6 +53,7 @@
             
             if($conn->query($sql) === TRUE) {
                 echo "<p>Compradas $quantidade unidades<p>";
+             //   $listar->listarVendas();
             } else {
                 echo "<p>Error: " . $sql . "<br>" . $conn->error."</p>";
             }
