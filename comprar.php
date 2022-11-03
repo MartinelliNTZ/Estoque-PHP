@@ -6,17 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Titulo do site</title>
     <link rel= "stylesheet" href = "style/estiloPadrao.css">
+    <link rel= "stylesheet" href = "style/classesStyle.css">
+    <link rel= "stylesheet" href = "style/idsStyle.css">
     <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
 
 </head>
-<body>
+
     <ul><!--Lista de botoes de cabeçalho-->
     <li><a href="index.html">Página Inicial</a></li>
         <li><a href="home.php">Home</a></li>
         <li><a href="vender.php">Vendas</a></li>
         <li><a href="comprar.php">Compras</a></li>
-        <li><a href="about.php">Sobre</a></li>
+        <li><a href="about.php">Sobre</a></li>        
     </ul>
+    <a href="" id="hora">Hora:</a>
+     
+
    
     <header>
         
@@ -29,20 +34,16 @@
         <div class="containerPainel">
         
         <form  method ="POST" action="comprar.php">
-            <p>Produto: Bujão de Gás 13KG MTL-S&A </p> 
-            <p>     Quantidade*:        <input type="number"  name="quantidade" class="input" min="0" max="10000"></p>         
-            <p>     Fornecedor:         <input type="text"  name="fornecedor" class="input"> </p>         
-              <p>   Valor Unitário*: R$  <input type="number"  name="valorUnitario" class="input"> </p> 
-              <label class= "quebra"><p>CPF: </label>
-              <input 
-                    type="text"  
-                    name="cpf" 
-                    class="input"
-                    id = "cpf"
-                    patern="\([0-9]\)[9]{1}[0-9]{4}[-]{1}[0-9]{4}" 
-                    maxlength="14"
-                    placeholder="CPF"
-                    onkeyup="mascara_cpf()"> </p>
+                <p>Produto: Bujão de Gás 13KG MTL-S&A </p> 
+                <p><label class= "labelForm">Quantidade*:</label> 
+                <input type="number"  name="quantidade" class="input" min="0" max="10000"></p> 
+
+                <p><label class= "labelForm">Fornecedor:</label>        
+                <input type="text"  name="fornecedor" class="input"> </p>         
+                  
+                <p><label class= "labelForm">Valor Unitário*: R$</label>
+                <input type="text" id="valorUnitario" name="valorUnitario" class="input" onkeyup="mascara_reais()"
+                placeholder="0.000,00"> </p> 
 
                 <input type="reset" value="Limpar" class="button">
                 <input type="submit" value="Adicionar Compra" class="button">     
@@ -52,25 +53,21 @@
         <div class="containerPainel">
        
         <?php
-        if(isset($_POST["quantidade"])){          $quantidade = $_POST["quantidade"];     }       else{       $quantidade = null;     }
+        if(isset($_POST["quantidade"])){    $quantidade = $_POST["quantidade"];}       else{ $quantidade = null;}
+        if(isset($_POST["valorUnitario"])){    $valorUnitario = $_POST["valorUnitario"];}       else{ $valorUnitario = null;}
         if($quantidade !=null & $quantidade >0){ 
             include("conecta.php");
-            include("listar.php");
+            include("listar.php");//falta implementar
             $listar = new Listar();
-
-            $timezone = new DateTimeZone('America/Sao_Paulo');
-            $agora = new DateTime('now', $timezone);        
-            $data = $agora->format('Y-m-d H:i:s');
-            
-
-             
+            $data = dataAtual();
+            $valor = converter($valorUnitario);/**Falta adicionar ao banco */          
+                         
             $sql = "INSERT INTO estoque_compra (data, quantidade)
-            VALUES ('$data', '$quantidade')";
-
-            
-            
+            VALUES ('$data', '$quantidade')";          
             if($conn->query($sql) === TRUE) {
-                echo "<p>Compradas $quantidade unidades<p>";
+               // echo "<p>Compradas $quantidade unidades<p>";
+                $x = number_format($quantidade,2,".","");
+                echo "<p>Compradasy $x unidades<p>";
              //   $listar->listarVendas();
             } else {
                 echo "<p>Error: " . $sql . "<br>" . $conn->error."</p>";
@@ -78,7 +75,7 @@
 
 
 
-        }else if($quantidade <= 0){
+        }else if($quantidade <= 0){         
             echo "<p>Valor não pode ser negativo</p>";
         }
         
@@ -86,6 +83,24 @@
             echo "<p>Por favor insira um valor</p>";
         }
 
+        /**
+         * Função que converte numeros em 88.888,00 em float */
+        function converter ( $valorUnitario){
+            $source =array(".",",");
+            $replace = array("", ".");
+            $valor = str_replace($source, $replace, $valorUnitario);
+            return $valor;
+        }
+        /**
+         * Retorna a data atua do sistema em formato 'Y-m-d H:i:s'         */
+        function dataAtual(){
+            $timezone = new DateTimeZone('America/Sao_Paulo');
+            $agora = new DateTime('now', $timezone);        
+            $data = $agora->format('Y-m-d H:i:s');
+            return $data;
+        }
+
+         
 
         ?>
         </div>
@@ -94,14 +109,9 @@
     <footer>
        
     </footer>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js">     
+      
+    <script src="js/mascara.js">     
     </script>
-    <script>
-        $("#valorUnitario").mask({
-            prefix: "R$:",
-            decimal: ",",
-            thousands: "."
-        })
-    </script>
+    
     </body>
     </html>

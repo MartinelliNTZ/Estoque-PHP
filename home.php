@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Titulo do site</title>
     <link rel= "stylesheet" href = "style/estiloPadrao.css">
+    <link rel= "stylesheet" href = "style/classesStyle.css">
+    <link rel= "stylesheet" href = "style/idsStyle.css">
     <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
 
 
