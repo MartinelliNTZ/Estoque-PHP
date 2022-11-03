@@ -55,8 +55,9 @@
         <div class="containerPainel">
        
         <?php
-        if(isset($_POST["quantidade"])){    $quantidade = $_POST["quantidade"];}       else{ $quantidade = null;}
-        if(isset($_POST["valorUnitario"])){    $valorUnitario = $_POST["valorUnitario"];}       else{ $valorUnitario = null;}
+        if(isset($_POST["quantidade"])){    $quantidade = $_POST["quantidade"];}        else{ $quantidade = null;}
+        if(isset($_POST["valorUnitario"])){ $valorUnitario = $_POST["valorUnitario"];}  else{ $valorUnitario = null;}
+        if(isset($_POST["fornecedor"])){    $fornecedor = $_POST["fornecedor"];}        else{ $fornecedor = null;}
         if($quantidade !=null & $quantidade >0){ 
             include("conecta.php");
             include("listar.php");//falta implementar
@@ -64,16 +65,21 @@
             $data = dataAtual();
             $valor = converter($valorUnitario);/**Falta adicionar ao banco */          
                          
-            $sql = "INSERT INTO estoque_compra (data, quantidade)
-            VALUES ('$data', '$quantidade')";          
+            $sql = "INSERT INTO estoque_compra (data, quantidade,fornecedor, valorUnitario)
+            VALUES ('$data', '$quantidade','$fornecedor', '$valor')";          
+           
             if($conn->query($sql) === TRUE) {
-               // echo "<p>Compradas $quantidade unidades<p>";
-                $x = number_format($quantidade,2,".","");
-                echo "<p>Compradasy $x unidades<p>";
-             //   $listar->listarVendas();
+                $valorTotal = $quantidade*$valor;
+                $valorTotal = number_format($valorTotal,2,",",".");
+                echo "<p>Compradas $quantidade unidades.
+                A R$$valorUnitario cada. Totalizando: R$$valorTotal.
+                <p>";               
+               
+                $listar->listarVendas();
             } else {
                 echo "<p>Error: " . $sql . "<br>" . $conn->error."</p>";
             }
+
 
 
 

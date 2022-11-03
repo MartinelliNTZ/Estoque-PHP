@@ -17,8 +17,8 @@
                
                 while($row = $result->fetch_assoc()){
                     echo       "<p>id: ". $row["id"]. 
-                    "///   Data: ". $row["data"].
-                    "///   Quantidade: ". $row["quantidade"].                    
+                    " //   Data: ". $row["data"].
+                    " //   Quantidade: ". $row["quantidade"].                    
                     "</p><p>-------------------------------------------------------------------------------------------------------------------------</p>";
 
         

@@ -1,7 +1,10 @@
 <?php 
 $host = "localhost";
 $user = "root";
-$password = "";
+/**Etec não tem senha
+ * acer senha = mysql
+ */
+$password = "mysql";
 $banco = "php_estoque";
 
 $conn = new mysqli($host, $user, $password, $banco);
