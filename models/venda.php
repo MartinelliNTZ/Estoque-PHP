@@ -1,17 +1,26 @@
 <?php
     class Venda {
-        var $id;
+        var $id;//determinado pelo banco
         var $data;
         var $quantidade;
-        var $fornecedor;
+        var $cliente;
         var $valorUnitario;
 
-        public function __constructor($id, $data, $quantidade, $fornecedor, $valorUnitario){
-        $this->$id =$id;
-        $this->$data=$data;
-        $this->$quantidade=$quantidade;
-        $this->$fornecedor=$fornecedor;
-        $this->$valorUnitario=$valorUnitario;
-        }
+        
+            function __constructor($quantidade, $cliente, $valorUnitario){           
+            $this->quantidade=$quantidade;
+            $this->cliente=$cliente;
+            $this->valorUnitario=$valorUnitario;
+            $this->data = $this->configData();            
+            }
+        /**
+         * Método que atribui a data atual a variavel data
+         */
+        private function configData(){
+            $timezone = new DateTimeZone('America/Sao_Paulo');
+            $agora = new DateTime('now', $timezone);        
+            $data = $agora->format('Y-m-d H:i:s');
+            return $data;
+        }    
     }
 ?>

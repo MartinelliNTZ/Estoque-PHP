@@ -44,9 +44,8 @@
                     $totalVendas = ($row["quantidade"] + $totalVendas);
                     $numVendas++;
                     
-
-        
                 }
+            
                 
             }else{
                 echo "nada encontrado";
