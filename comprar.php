@@ -42,7 +42,9 @@
                 <input type="text"  name="fornecedor" class="input"> </p>         
                   
                 <p><label class= "labelForm">Valor Unitário*: R$</label>
-                <input type="text" id="valorUnitario" name="valorUnitario" class="input" onkeyup="mascara_reais()"
+                <input type="text" id="valorUnitario" name="valorUnitario" class="input" 
+                autocomplete= "off"
+                onkeyup="mascara_reais()"
                 placeholder="0.000,00"> </p> 
 
                 <input type="reset" value="Limpar" class="button">

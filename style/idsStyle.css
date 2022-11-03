@@ -9,3 +9,9 @@
     align-content: center;
     align-items: center;
 }
+#p_about{
+    text-shadow: 0.02em 0.02em 0.10em aqua;
+     font-size: 18px;
+     color: #ffff;
+     font-family: Arial, Helvetica, sans-serif;   
+}

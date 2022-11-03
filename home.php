@@ -26,7 +26,7 @@
     <main>
         <div class="containerPainel">
 
-            <p>Texto aqui</p>
+            <p>Dash Board</p>
            
         </div>
 

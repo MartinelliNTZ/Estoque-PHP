@@ -26,7 +26,19 @@
     <main>
         <div class="containerPainel">
 
-            <h1 > Desenvolvido por Matheus Martinelli &copy; 2022</h1>
+            <p id="p_about"> Software desenvolvido pela empresa Martinelli Soft And Agriculture &copy; 
+                2022(Nenhum direito reservado).</p>
+            <p id="p_about">O presente trabalho foi desenvolvido como uma atividade prática do curso de Técnico em Análise e 
+                Desenvolvimento de Sistemas do Centro Paulo Souza, sediado na ETEC Pedro D'Arcadia Neto em Assis-SP.
+                Dada a situação mencionado devo exclarecer que este trabalha não tem valor comercial sendo apenas desenvolvido
+                para fins didáticos.
+
+
+            </p>    
+            <p id="p_about">Projeto iniciado em 31 de outubro de 2022</p>    
+            <p id="p_about">Projeto finalizado em 31 de outubro de 2022</p>    
+            <p id="about"> Desenvolvido por Matheus Martinelli &copy; 2022</p>
+
 
         </div>
 
