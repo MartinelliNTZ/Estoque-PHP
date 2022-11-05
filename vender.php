@@ -52,26 +52,29 @@
         if(isset($_POST["quantidade"])){    $quantidade = $_POST["quantidade"];}        else{$quantidade = null;}
         if(isset($_POST["cliente"])){       $cliente = $_POST["cliente"];}              else{$cliente = null;}
         if(isset($_POST["valorUnitario"])){ $valorUnitario = $_POST["valorUnitario"];}  else{$valorUnitario = null;}
-        if($quantidade !=null & $quantidade >0){  
+        if(VenderPage::verificar($quantidade, $valorUnitario)){  
             
             include("models/vendaDAO.php");
             include("models/venda.php");
             
+            
                 $venda =new Venda();
                 $venda->__constructor($quantidade,$cliente, $valorUnitario);                
                 VendaDAO::salvar($venda);    
-
-        }else if($quantidade <= 0){
-            echo "<p>Valor não pode ser negativo</p>";
-           
-           
-            
-           
-            
-        }
-        
-        else{
-            echo "<p>Por favor insira um valor</p>";
+                echo "<p>Sucesso</p>";
+        }        
+         class VenderPage{
+            static function verificar($quantidade, $valorUnitario){
+                if($quantidade ==null || $quantidade <=0){
+                    echo "<p>Por favor insira uma quantidade válida</p>";
+                    return false;
+                 }elseif($valorUnitario==null || $valorUnitario<=0){
+                    echo "<p>Por favor insira um valor unítario válida</p>";
+                    return false;
+                 } else{
+                    return true;
+                 }
+                }
         }
 
 
@@ -81,6 +84,6 @@
     <footer>
        
     </footer>
-
+    <script src="js/mascara.js"></script>
     </body>
     </html>

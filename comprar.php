@@ -60,8 +60,7 @@
         if(isset($_POST["fornecedor"])){    $fornecedor = $_POST["fornecedor"];}        else{ $fornecedor = null;}
         if($quantidade !=null & $quantidade >0){ 
             include("conecta.php");
-            include("listar.php");//falta implementar
-            $listar = new Listar();
+
             $data = dataAtual();
             $valor = converter($valorUnitario);/**Falta adicionar ao banco */          
                          
@@ -75,7 +74,7 @@
                 A R$$valorUnitario cada. Totalizando: R$$valorTotal.
                 <p>";               
                
-                $listar->listarVendas();
+               
             } else {
                 echo "<p>Error: " . $sql . "<br>" . $conn->error."</p>";
             }
@@ -118,8 +117,7 @@
        
     </footer>
       
-    <script src="js/mascara.js">     
-    </script>
+    <script src="js/mascara.js"></script>
     
     </body>
     </html>
