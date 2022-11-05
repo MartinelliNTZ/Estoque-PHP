@@ -23,29 +23,22 @@
         <li><a href="about.php">Sobre</a></li>
     </ul>
     <header>
-        <h1 > Adicionar Venda</h1>
+        <h1 > Relatório de Venda</h1>
     </header>
 
     <main>
         <div class="containerPainel">
 
        
-        <form  method ="POST" action="vender.php">
+        <form  method ="POST" action="relatorioVenda.php">
                 <p>Produto: Bujão de Gás 13KG MTL-S&A </p> 
-                <p><label class= "labelForm">Quantidade*:</label> 
-                <input type="number"  name="quantidade" class="input" min="0" max="10000"></p> 
 
-                <p><label class= "labelForm">Cliente:</label>        
-                <input type="text"  name="cliente" class="input"> </p>         
-                  
-                <p><label class= "labelForm">Valor Unitário*: R$</label>
-                <input type="text" id="valorUnitario" name="valorUnitario" class="input" 
-                autocomplete= "off"
-                onkeyup="mascara_reais()"
-                placeholder="0.000,00"> </p> 
-
-                <input type="reset" value="Limpar" class="button">
-                <input type="submit" value="Adicionar Compra" class="button">     
+                <p><label class= "labelForm">Inicio:</label> 
+                <input type="date"  name="datainicial" class="" min="0" max="10000"> 
+                <label class= "labelForm">Fim:</label> 
+                <input type="date"  name="dataFinal" class="" min="0" max="10000">                        
+                <input type="submit" value="Pesquisar" class="button"> 
+                <input type="reset" value="Limpar" class="button"></p>    
                                        
         </form>
         </div>
