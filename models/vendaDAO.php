@@ -9,5 +9,26 @@
                 VALUES ('$venda->data', '$venda->quantidade', '$venda->cliente', '$venda->valorUnitario')";
                 return $conn->query($sql);               
         }
+        static function listar(){
+            include("conecta.php");    
+            $sql   ="SELECT  * FROM estoque_venda  ";         
+            
+            $result = $conn->query($sql);
+        
+            if($result->num_rows > 0  ){               
+               
+                while($row = $result->fetch_assoc()){
+                    echo       "<p>id: ". $row["id"]. 
+                    " //   Data: ". $row["data"].
+                    " //   Quantidade: ". $row["quantidade"].                    
+                    "</p><p>-------------------------------------------------------------------------------------------------------------------------</p>";
+    
+        
+                }
+            }else{
+                echo "nada encontrado";
+            } 
+        }
     }
+    
 ?>

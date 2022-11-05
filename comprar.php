@@ -15,9 +15,11 @@
     <ul><!--Lista de botoes de cabeçalho-->
     <li><a href="index.html">Página Inicial</a></li>
         <li><a href="home.php">Home</a></li>
-        <li><a href="vender.php">Vendas</a></li>
-        <li><a href="comprar.php">Compras</a></li>
-        <li><a href="about.php">Sobre</a></li>        
+        <li><a href="vender.php">Vender</a></li>
+        <li><a href="relatorioVenda.php">Vendas</a></li>
+        <li><a href="comprar.php">Comprar</a></li>
+        <li><a href="relatorioCompra.php">Compras</a></li>
+        <li><a href="about.php">Sobre</a></li>
     </ul>
     <a href="" id="hora">Hora:</a>
      
@@ -60,8 +62,7 @@
         if(isset($_POST["fornecedor"])){    $fornecedor = $_POST["fornecedor"];}        else{ $fornecedor = null;}
         if($quantidade !=null & $quantidade >0){ 
             include("conecta.php");
-            include("listar.php");//falta implementar
-            $listar = new Listar();
+
             $data = dataAtual();
             $valor = converter($valorUnitario);/**Falta adicionar ao banco */          
                          
@@ -75,7 +76,7 @@
                 A R$$valorUnitario cada. Totalizando: R$$valorTotal.
                 <p>";               
                
-                $listar->listarVendas();
+               
             } else {
                 echo "<p>Error: " . $sql . "<br>" . $conn->error."</p>";
             }
@@ -118,8 +119,7 @@
        
     </footer>
       
-    <script src="js/mascara.js">     
-    </script>
+    <script src="js/mascara.js"></script>
     
     </body>
     </html>

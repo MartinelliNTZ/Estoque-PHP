@@ -59,7 +59,7 @@
             
             include("models/vendaDAO.php");
             include("models/venda.php");
-
+            
             
                 $venda =new Venda();
                 $venda->__constructor($quantidade,$cliente, $valorUnitario);                
