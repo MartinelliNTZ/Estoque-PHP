@@ -27,57 +27,35 @@
 
     <main>
         <div class="containerPainel">
+        
+            <form  method ="POST" action="relatorioCompra.php">
+                    <p>Produto: Bujão de Gás 13KG MTL-S&A </p> 
 
-       
-        <form  method ="POST" action="vender.php">
-                <p>Produto: Bujão de Gás 13KG MTL-S&A </p> 
-                <p><label class= "labelForm">Quantidade*:</label> 
-                <input type="number"  name="quantidade" class="input" min="0" max="10000"></p> 
-
-                <p><label class= "labelForm">Cliente:</label>        
-                <input type="text"  name="cliente" class="input"> </p>         
-                  
-                <p><label class= "labelForm">Valor Unitário*: R$</label>
-                <input type="text" id="valorUnitario" name="valorUnitario" class="input" 
-                autocomplete= "off"
-                onkeyup="mascara_reais()"
-                placeholder="0.000,00"> </p> 
-
-                <input type="reset" value="Limpar" class="button">
-                <input type="submit" value="Adicionar Compra" class="button">     
-                                       
-        </form>
-        </div>
+                    <p><label class= "labelForm">Inicio:</label> 
+                    <input type="date"  name="datainicial" class="" min="0" max="10000"> 
+                    <label class= "labelForm">Fim:</label> 
+                    <input type="date"  name="dataFinal" class="" min="0" max="10000">                        
+                    <input type="submit" value="Pesquisar" class="button"> 
+                    <input type="reset" value="Limpar" class="button"></p>    
+                                        
+            </form>
+            </div>
         <div class="containerPainel">
        
         <?php
-        if(isset($_POST["quantidade"])){    $quantidade = $_POST["quantidade"];}        else{$quantidade = null;}
-        if(isset($_POST["cliente"])){       $cliente = $_POST["cliente"];}              else{$cliente = null;}
-        if(isset($_POST["valorUnitario"])){ $valorUnitario = $_POST["valorUnitario"];}  else{$valorUnitario = null;}
-        if(VenderPage::verificar($quantidade, $valorUnitario)){  
+        include_once('models/compraDAO.php');
+        
+            if(isset($_POST["datainicial"])){    $datainicial = $_POST["datainicial"];}        else{$datainicial = null;}
+            if(isset($_POST["dataFinal"])){       $dataFinal = $_POST["dataFinal"];}              else{$dataFinal = null;}
             
-            include("models/vendaDAO.php");
-            include("models/venda.php");
-            
-            
-                $venda =new Venda();
-                $venda->__constructor($quantidade,$cliente, $valorUnitario);                
-                VendaDAO::salvar($venda);    
-                echo "<p>Sucesso</p>";
-        }        
-         class VenderPage{
-            static function verificar($quantidade, $valorUnitario){
-                if($quantidade ==null || $quantidade <=0){
-                    echo "<p>Por favor insira uma quantidade válida</p>";
-                    return false;
-                 }elseif($valorUnitario==null || $valorUnitario<=0){
-                    echo "<p>Por favor insira um valor unítario válida</p>";
-                    return false;
-                 } else{
-                    return true;
-                 }
-                }
-        }
+            if($datainicial!=null & $dataFinal!=null){
+                echo "<p>Pesquisa entre '$datainicial' e '$dataFinal'</p>";
+                echo "<p>-------------------------------------------------------------------------------------------------------------------------</p>";
+                CompraDAO::listarComFiltro($datainicial, $dataFinal);
+            }else{
+                echo "<p>Exibindo todas as Compras</p>";
+                CompraDAO::listar();
+            }
 
 
         ?>

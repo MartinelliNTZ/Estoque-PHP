@@ -45,34 +45,22 @@
         <div class="containerPainel">
        
         <?php
-        if(isset($_POST["quantidade"])){    $quantidade = $_POST["quantidade"];}        else{$quantidade = null;}
-        if(isset($_POST["cliente"])){       $cliente = $_POST["cliente"];}              else{$cliente = null;}
-        if(isset($_POST["valorUnitario"])){ $valorUnitario = $_POST["valorUnitario"];}  else{$valorUnitario = null;}
-        if(VenderPage::verificar($quantidade, $valorUnitario)){  
-            
-            include("models/vendaDAO.php");
-            include("models/venda.php");
-            
-            
-                $venda =new Venda();
-                $venda->__constructor($quantidade,$cliente, $valorUnitario);                
-                VendaDAO::salvar($venda);    
-                echo "<p>Sucesso</p>";
-        }        
-         class VenderPage{
-            static function verificar($quantidade, $valorUnitario){
-                if($quantidade ==null || $quantidade <=0){
-                    echo "<p>Por favor insira uma quantidade válida</p>";
-                    return false;
-                 }elseif($valorUnitario==null || $valorUnitario<=0){
-                    echo "<p>Por favor insira um valor unítario válida</p>";
-                    return false;
-                 } else{
-                    return true;
-                 }
-                }
-        }
 
+            
+
+            if(isset($_POST["datainicial"])){    $datainicial = $_POST["datainicial"];}        else{$datainicial = null;}
+            if(isset($_POST["dataFinal"])){       $dataFinal = $_POST["dataFinal"];}              else{$dataFinal = null;}
+            include_once('models/vendaDAO.php');
+            if($datainicial!=null & $dataFinal!=null){
+                echo "<p>Pesquisa entre '$datainicial' e '$dataFinal'</p>";
+                echo "<p>-------------------------------------------------------------------------------------------------------------------------</p>";
+                VendaDAO::listarComFiltro($datainicial, $dataFinal);
+            }else{
+                echo "<p>Exibindo todas as vendas</p>";
+                VendaDAO::listar();
+            }
+
+            
 
         ?>
         </div>
