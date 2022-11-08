@@ -45,21 +45,7 @@
         <div class="containerPainel">
        
         <?php
-        include_once('models/compraDAO.php');
-        
-            if(isset($_POST["datainicial"])){    $datainicial = $_POST["datainicial"];}        else{$datainicial = null;}
-            if(isset($_POST["dataFinal"])){       $dataFinal = $_POST["dataFinal"];}              else{$dataFinal = null;}
-            
-            if($datainicial!=null & $dataFinal!=null){
-                echo "<p>Pesquisa entre '$datainicial' e '$dataFinal'</p>";
-                echo "<p>-------------------------------------------------------------------------------------------------------------------------</p>";
-                CompraDAO::listarComFiltro($datainicial, $dataFinal);
-            }else{
-                echo "<p>Exibindo todas as Compras</p>";
-                CompraDAO::listar();
-            }
-
-
+  
         ?>
         </div>
     </main>
