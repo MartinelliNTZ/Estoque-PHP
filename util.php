@@ -3,7 +3,7 @@
 
                /**
          * Função que converte numeros em 88.888,00 em float */
-        function converter ( $valorUnitario){
+        static function converter ( $valorUnitario){
             $source =array(".",",");
             $replace = array("", ".");
             $valor = str_replace($source, $replace, $valorUnitario);

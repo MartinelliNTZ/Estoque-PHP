@@ -47,27 +47,53 @@
                 placeholder="0.000,00"> </p> 
 
                 <input type="reset" value="Limpar" class="button">
-                <input type="submit" value="Adicionar Compra" class="button">     
+                <input type="submit" value="Adicionar Venda" class="button">     
                                        
         </form>
-        </div>
-        <div class="containerPainel">
+        
        
         <?php
+                include_once("models/vendaDAO.php");
+                include_once("models/compraDAO.php");                
+                include_once("custom_values.php");
+                include_once("util.php");
+
+                $infoVenda = VendaDAO::getInfo();
+                $infoCompra = CompraDAO::getInfo();
+                $estoqueTotal = $infoCompra->quantidade -$infoVenda->quantidade;
+
+                $estoqueMinimo = CustomValues::getEstoqueMinimo();
+                echo "<p>Em estoque: $estoqueTotal    Estoque minimo: $estoqueMinimo</p>";
+                echo "</div><div class='containerPainel'>";
+
+
         if(isset($_POST["quantidade"])){    $quantidade = $_POST["quantidade"];}        else{$quantidade = null;}
         if(isset($_POST["cliente"])){       $cliente = $_POST["cliente"];}              else{$cliente = null;}
         if(isset($_POST["valorUnitario"])){ $valorUnitario = $_POST["valorUnitario"];}  else{$valorUnitario = null;}
-        if(VenderPage::verificar($quantidade, $valorUnitario)){  
-            
-            include("models/vendaDAO.php");
-            include("models/venda.php");
 
-            
+        if ($quantidade<=$estoqueTotal) {
+            if(VenderPage::verificar($quantidade, $valorUnitario)){
+                $valor = Util::converter($valorUnitario);             
                 $venda =new Venda();
-                $venda->__constructor($quantidade,$cliente, $valorUnitario);                
-                VendaDAO::salvar($venda);    
-                echo "<p>Sucesso</p>";
-        }        
+                $venda->__constructor($quantidade,$cliente, $valor); 
+                if(VendaDAO::salvar($venda))  {            
+                
+                    $valorTotal = number_format(($quantidade*$valor),2,",",".");    
+                    echo "<p>Sucesso</p>";
+                    echo "<p>Vendidas $quantidade unidades.
+                    A R$$valorUnitario cada. Totalizando: R$$valorTotal.
+                    <p>"; 
+                }else{
+                    echo "<p>Erro inesperado</p>";
+                }
+            }  
+        }else{
+            echo "<p>Quantidade Insuficiente em estoque. O Máximo é $estoqueTotal</p>";
+        }
+
+
+
+              
          class VenderPage{
             static function verificar($quantidade, $valorUnitario){
                 if($quantidade ==null || $quantidade <=0){
@@ -80,6 +106,7 @@
                     return true;
                  }
                 }
+              
         }
 
 
