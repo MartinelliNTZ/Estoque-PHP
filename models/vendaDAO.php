@@ -16,16 +16,18 @@
             $result = $conn->query($sql);
         
             if($result->num_rows > 0  ){               
-               
+                echo "<p><table>";
                 while($row = $result->fetch_assoc()){
-                    echo       "<p>id: ". $row["id"]. 
-                    " //   Data: ". $row["data"].
-                    " //   Cliente: ". $row["cliente"].
-                    " //   Quantidade: ". $row["quantidade"].                    
-                    "</p><p>-------------------------------------------------------------------------------------------------------------------------</p>";
+                    echo       "<tr>
+                    <td>id: ". $row["id"]. 
+                    " </td><td>   Data: ". $row["data"].
+                    " </td><td>   Cliente: ". $row["cliente"].
+                    " </td><td>   Quantidade: ". $row["quantidade"].  "<td>".                  
+                    "</tr>";
     
         
                 }
+                echo "<p></table>";
             }else{
                 echo "nada encontrado";
             } 

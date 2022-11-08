@@ -52,7 +52,7 @@
         echo "<table>";
         //Cabeçalho
         echo "<tr>";
-        echo "<td>Tipo</td><td>Ocorrencias</td><td>Quantidade</td><td>Valor movimentado</td><td>Valor médio</td>";
+        echo "<td>Tipo</td><td>Ocorrencias</td><td>Quantidade</td><td>Valor movimentado</td><td>Preço médio</td>";
         echo "</tr>";
         //Linha de vendas
         echo "<tr>";

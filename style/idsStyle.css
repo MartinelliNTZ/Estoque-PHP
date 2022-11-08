@@ -15,3 +15,6 @@
      color: #ffff;
      font-family: Arial, Helvetica, sans-serif;   
 }
+#alerta{
+    text-shadow: 0.02em 0.02em 0.10em red;
+}

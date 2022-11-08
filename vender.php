@@ -61,9 +61,12 @@
                 $infoVenda = VendaDAO::getInfo();
                 $infoCompra = CompraDAO::getInfo();
                 $estoqueTotal = $infoCompra->quantidade -$infoVenda->quantidade;
+                $preçoSujerido= $infoCompra->valorMedio * (CustomValues::getMargemDeVenda()+1);
 
                 $estoqueMinimo = CustomValues::getEstoqueMinimo();
-                echo "<p>Em estoque: $estoqueTotal    Estoque minimo: $estoqueMinimo</p>";
+                echo "<p>Em estoque: $estoqueTotal    
+                Estoque minimo: $estoqueMinimo
+                 Preço sujerido R$". number_format($preçoSujerido,2,",",".")."</p>";
                 echo "</div><div class='containerPainel'>";
 
 
@@ -83,6 +86,10 @@
                     echo "<p>Vendidas $quantidade unidades.
                     A R$$valorUnitario cada. Totalizando: R$$valorTotal.
                     <p>"; 
+                    echo "<p>Em estoque: ".($estoqueTotal-$quantidade)."<p>";
+                    if($estoqueMinimo>= ($estoqueTotal-$quantidade)){
+                        echo "<p id='alerta'>Seu estoque está abaixo do limite por favor realize uma compra</p>";
+                    }
                 }else{
                     echo "<p>Erro inesperado</p>";
                 }
