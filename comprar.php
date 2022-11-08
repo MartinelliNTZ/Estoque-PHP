@@ -14,7 +14,9 @@
 
     <ul><!--Lista de botoes de cabeçalho-->
     <li><a href="index.html">Página Inicial</a></li>
-        <li><a href="home.php">Home</a></li>
+    <li><a href="home.php">Home</a></li>
+        <li><a href="cadastro.php">Cadastro</a></li>
+        <li><a href="estoque.php">Estoque</a></li>
         <li><a href="vender.php">Vender</a></li>
         <li><a href="relatorioVenda.php">Vendas</a></li>
         <li><a href="comprar.php">Comprar</a></li>
