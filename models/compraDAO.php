@@ -59,8 +59,8 @@
                     " </td><td>   Data: ". $row["data"].
                     " </td><td>   Fornecedor: ". $row["fornecedor"].
                     " </td><td>   Quantidade: ". $row["quantidade"].                    
-                    " </td><td>   Preço: R$ ". $row["valorUnitario"].                    
-                    " </td><td>   Total: R$ ". $total.                    
+                    " </td><td>   Preço: R$ ". number_format($row["valorUnitario"], 2, ',', '.').                    
+                    " </td><td>   Total: R$ ". number_format($total, 2, ',', '.').                    
                     "</td>";
                     $numVendas++;
                     $quantidade+=$row["quantidade"];
@@ -72,7 +72,7 @@
             }else{
                 echo "<p>nada encontrado</p>";
             } 
-            $m = Util::reconverter($montante);
+            $m = number_format($montante, 2, ',', '.');
             echo "<p><label class= 'labelForm'>Vendas:$numVendas</label> 
                         <label class= 'labelForm'>Quantidade:$quantidade</label>
                         <label class= 'labelForm'>Montante:R$ $m</label>

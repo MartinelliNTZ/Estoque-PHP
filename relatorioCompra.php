@@ -22,7 +22,7 @@
         <li><a href="about.php">Sobre</a></li>
     </ul>
     <header>
-        <h1 > Adicionar Venda</h1>
+        <h1 > Relatório de Compras</h1>
     </header>
 
     <main>

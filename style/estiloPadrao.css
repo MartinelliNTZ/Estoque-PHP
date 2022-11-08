@@ -103,11 +103,19 @@ li a {
     text-decoration: none;
 }
 
-p, td{
+p{
     text-shadow: 0.02em 0.02em 0.10em aqua;
      font-size: 23px;
      color: #ffff;
      font-family: Arial, Helvetica, sans-serif;   
+}
+td{
+    text-shadow: 0.02em 0.02em 0.10em aqua;
+     font-size: 23px;
+     color: #ffff;
+     font-family: Arial, Helvetica, sans-serif;  
+     padding-left: 10px;
+     padding-right: 10px;
 }
 
 
