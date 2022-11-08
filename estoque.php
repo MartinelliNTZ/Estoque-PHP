@@ -46,26 +46,44 @@
        
         <?php
         include_once('models/compraDAO.php');
-        
-            if(isset($_POST["datainicial"])){    $datainicial = $_POST["datainicial"];}        else{$datainicial = null;}
-            if(isset($_POST["dataFinal"])){       $dataFinal = $_POST["dataFinal"];}              else{$dataFinal = null;}
-            
-            if($datainicial!=null & $dataFinal!=null){
-                echo "<p>Pesquisa entre '$datainicial' e '$dataFinal'</p>";
-                echo "<p>-------------------------------------------------------------------------------------------------------------------------</p>";
-                CompraDAO::listarComFiltro($datainicial, $dataFinal);
-            }else{
-                echo "<p>Exibindo todas as Compras</p>";
-                CompraDAO::listar();
-            }
+        include_once('models/vendaDAO.php');
+        $infoVenda = VendaDAO::getInfo();
+        $infoCompra = CompraDAO::getInfo();
+        echo "<table>";
+        //Cabeçalho
+        echo "<tr>";
+        echo "<td>Tipo</td><td>Ocorrencias</td><td>Quantidade</td><td>Valor movimentado</td><td>Valor médio</td>";
+        echo "</tr>";
+        //Linha de vendas
+        echo "<tr>";
+        echo "<td>Vendas</td>";
+        echo "<td>".$infoVenda->numVendas."</td>";
+        echo "<td>".$infoVenda->quantidade."</td>";
+        echo "<td>R$ ".number_format(($infoVenda->montante), 2, ',', '.')."</td>";
+        echo "<td>R$ ".number_format(($infoVenda->valorMedio), 2, ',', '.')."</td>";
+        echo "</tr>";
+        //linha de compras
+        echo "</tr>";
+        echo "<td>Compras</td>";
+        echo "<td>".$infoCompra->numVendas."</td>";
+        echo "<td>".$infoCompra->quantidade."</td>";
+        echo "<td>R$ ".number_format(($infoCompra->montante), 2, ',', '.')."</td>";
+        echo "<td>R$ ".number_format(($infoCompra->valorMedio), 2, ',', '.')."</td>";
+        echo "<tr>";
+        echo "</table>";
+        $estoqueTotal = $infoCompra->quantidade -$infoVenda->quantidade;
+        $p =($infoVenda->valorMedio) / ($infoCompra->valorMedio);
+        $p -= 1;
+        $p *=100; 
 
+        $porcentagem =  number_format( $p, 2, ',', '.')             ;
+       
+
+        echo "<p>Total em estoque: $estoqueTotal</p>";
+        echo "<p>Porcentagem de venda: $porcentagem %</p>";
 
         ?>
         </div>
     </main>
-    <footer>
-       
-    </footer>
-    <script src="js/mascara.js"></script>
     </body>
     </html>

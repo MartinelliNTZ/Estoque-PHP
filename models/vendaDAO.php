@@ -71,6 +71,43 @@
             </p>";
 
         }
+        /**
+         * Retorna um info quew é um objeto contendo os totais de venda e 
+         */
+        static function getInfo(){
+            $numVendas = 0;
+            $quantidade = 0;
+            $montante = 0;
+            $valorMedio = 0;
+
+            include("conecta.php");    
+            include("venda.php");    
+            include("info.php");    
+            $sql   ="SELECT * FROM estoque_venda";         
+            
+            $result = $conn->query($sql);
+        
+            if($result->num_rows > 0  ){              
+                while($row = $result->fetch_assoc()){
+                    $total = $row['quantidade']*$row['valorUnitario'];
+ 
+                    $numVendas++;
+                    $quantidade+=$row["quantidade"];
+                    $montante+=$total;    
+        
+                }
+
+            $valorMedio = $montante /$quantidade; 
+            $info = new Info();
+            $info->__constructor($numVendas, $quantidade, $montante, $valorMedio); 
+            return $info;
+            
+               
+            }else{
+                echo "<p>nada encontrado</p>";
+            } 
+
+        }
     }
     
 ?>
