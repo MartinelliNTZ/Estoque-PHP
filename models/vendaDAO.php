@@ -1,7 +1,10 @@
 <?php
     class VendaDAO {
         /**
+         * @param venda recebe um onjeto do tipo venda para salvar no banco de dados
          * Salva um objeto do tipo venda no banco de dados
+         * @return false se a operação falhar
+         * @return true se a operação for um sucesso
          */
         static function salvar(Venda $venda){  
                 include("conecta.php");  
@@ -10,7 +13,9 @@
                 return $conn->query($sql);               
         }
         /**
-         * Recebe duas datas e caso  sejam nulas ele faz ele retorna para a tela todas as vendas do periodo
+         * @param datainicial a data inicial em que se queira buscar os dados 
+         * @param datafinal a data final em que se queira buscar os dados 
+         * se a caso uma das datas for nula retornara o valor do periodo inteiro
          * caso sejam datas validas ele busca no banco de dados e retorna somente as informações naquele periodo
          */
         static function listar($dataInicial, $dataFinal){
@@ -23,7 +28,7 @@
             
             if($dataInicial==null || $dataFinal==null){
                 $sql  ="SELECT  * FROM estoque_venda  "; 
-                $message = "<p >Exibindo todas as compras desde o inicio</p>
+                $message = "<p >Exibindo todas as vendas desde o inicio</p>
                 <p>-------------------------------------------------------------------------------------------------------------------------</p>";
             }else{
                 $message = "<p >Pesquisa entre ".$dataInit." e $dataFinal</p>
@@ -61,7 +66,10 @@
 
         }
         /**
-         * Retorna um info quew é um objeto contendo os totais de venda e 
+         * @return Info com todas as informações de vendas 
+         * @param datainicial a data inicial em que se queira buscar os dados 
+         * @param datafinal a data final em que se queira buscar os dados 
+         * se a caso uma das datas for nula retornara o valor do periodo inteiro
          */
         static function getInfo($dataInicial, $dataFinal){
             include("conecta.php");    
