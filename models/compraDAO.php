@@ -7,9 +7,9 @@
          * caso sejam datas validas ele busca no banco de dados e retorna somente as informações naquele periodo
          */
         static function listar($dataInicial, $dataFinal){
-            include("conecta.php");    
-            include("venda.php"); 
-            include_once('util.php');
+            include_once("conecta.php");    
+            include_once("venda.php"); 
+            include_once('helpers/util.php');
             $numVendas = 0;
             $quantidade = 0;
             $montante = 0;             
@@ -69,9 +69,9 @@
             $montante = 0;
             $valorMedio = 0;
             if($dataInicial==null || $dataFinal==null){
-                $sql  ="SELECT  * FROM estoque_venda  ";                 
+                $sql  ="SELECT  * FROM estoque_compra  ";                 
             }else{
-                $sql   ="SELECT * FROM estoque_venda WHERE data BETWEEN '$dataInicial' AND '$dataFinal' "; 
+                $sql   ="SELECT * FROM estoque_compra WHERE data BETWEEN '$dataInicial' AND '$dataFinal' "; 
             }               
                 
             $result = $conn->query($sql);        

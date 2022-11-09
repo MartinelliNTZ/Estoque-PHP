@@ -7,7 +7,7 @@
          * @return true se a operação for um sucesso
          */
         static function salvar(Venda $venda){  
-                include("conecta.php");  
+                include_once("conecta.php");  
                 $sql = "INSERT INTO estoque_venda (data, quantidade, cliente, valorUnitario)
                 VALUES ('$venda->data', '$venda->quantidade', '$venda->cliente', '$venda->valorUnitario')";
                 return $conn->query($sql);               
@@ -20,8 +20,8 @@
          */
         static function listar($dataInicial, $dataFinal){
             $dataInit = $dataInicial;
-            include("conecta.php");    
-            include("venda.php"); 
+            include_once("conecta.php");    
+            include_once("venda.php"); 
             $numVendas = 0;
             $quantidade = 0;
             $montante = 0;
@@ -73,8 +73,8 @@
          */
         static function getInfo($dataInicial, $dataFinal){
             include("conecta.php");    
-            include("venda.php");    
-            include("info.php"); 
+            include_once("venda.php");    
+            include_once("info.php"); 
             $numVendas = 0;
             $quantidade = 0;
             $montante = 0;

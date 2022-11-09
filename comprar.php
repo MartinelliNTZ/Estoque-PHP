@@ -38,33 +38,34 @@
         <div class="containerPainel">
         
         <form  method ="POST" action="comprar.php">
+            <table>
                 <p>Produto: Bujão de Gás 13KG MTL-S&A </p> 
-                <p><label class= "labelForm">Quantidade*:</label> 
-                <input type="number"  name="quantidade" class="input" min="0" max="10000"></p> 
+                <tr><td class="tdForm"><label class= "labelForm">Quantidade*:</label></td> 
+                <td class="tdForm"><input type="number"  name="quantidade" class="input" min="0" max="10000"></tr></td> 
 
-                <p><label class= "labelForm">Fornecedor:</label>        
-                <input type="text"  name="fornecedor" class="input"> </p>         
+                <tr><td class="tdForm"><label class= "labelForm">Fornecedor:</label></td>        
+                <td class="tdForm"><input type="text"  name="fornecedor" class="input"> </tr></td>         
                   
-                <p><label class= "labelForm">Valor Unitário*: R$</label>
-                <input type="text" id="valorUnitario" name="valorUnitario" class="input" 
+                <tr><td class="tdForm"><label class= "labelForm">Valor Unitário*: R$</label></td>
+                <td class="tdForm"><input type="text" id="valorUnitario" name="valorUnitario" class="input" 
                 autocomplete= "off"
                 onkeyup="mascara_reais()"
-                placeholder="0.000,00"> </p> 
+                placeholder="0.000,00"> </tr></td> 
 
-                <input type="reset" value="Limpar" class="button">
-                <input type="submit" value="Adicionar Compra" class="button">     
-                                       
+                <tr><td class="tdForm"><input type="reset" value="Limpar" class="button"></td>
+                <td class="tdForm"><input type="submit" value="Adicionar Compra" class="button"></tr></td>     
+            </table>                           
         </form>
        
         <?php
         include_once("conecta.php");
         include_once("models/vendaDAO.php");
         include_once("models/compraDAO.php");                
-        include_once("custom_values.php");
-        include_once("util.php");
+        include_once("helpers/custom_values.php");
+        include_once("helpers/util.php");
 
         $infoVenda = VendaDAO::getInfo(null,null);
-        $infoCompra = CompraDAO::getInfo();
+        $infoCompra = CompraDAO::getInfo(null, null);
         $estoqueTotal = $infoCompra->quantidade -$infoVenda->quantidade;
         $preçoMedioCompra= $infoCompra->valorMedio;
 

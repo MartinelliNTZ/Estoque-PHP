@@ -30,7 +30,7 @@
     <main>
         <div class="containerPainel">
         
-            <form  method ="POST" action="relatorioCompra.php">
+            <form  method ="POST" action="estoque.php">
                     <p>Produto: Bujão de Gás 13KG MTL-S&A </p> 
 
                     <p><label class= "labelForm">Inicio:</label> 
@@ -50,7 +50,9 @@
         include_once('models/compraDAO.php');
         include_once('models/vendaDAO.php');
         $infoVenda = VendaDAO::getInfo($dataInicial, $dataFinal);
+        $infoVendaGeral = VendaDAO::getInfo($dataInicial, $dataFinal);
         $infoCompra = CompraDAO::getInfo($dataInicial, $dataFinal);
+        $infoCompraGeral = CompraDAO::getInfo($dataInicial, $dataFinal);
         echo "<table>";
         //Cabeçalho
         echo "<tr>";
@@ -74,7 +76,7 @@
         echo "<td>R$ ".number_format(($infoVenda->valorMedio), 2, ',', '.')."</td>";
         echo "</tr>";
         echo "</table>";
-        $estoqueTotal = $infoCompra->quantidade -$infoVenda->quantidade;
+        $estoqueTotal = $infoCompraGeral->quantidade -$infoVendaGeral->quantidade;
         $p =($infoVenda->valorMedio) / ($infoCompra->valorMedio);
         $p -= 1;
         $p *=100; 

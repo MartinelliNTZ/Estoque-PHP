@@ -33,21 +33,24 @@
 
        
         <form  method ="POST" action="vender.php">
-                <p>Produto: Bujão de Gás 13KG MTL-S&A </p> 
-                <p><label class= "labelForm">Quantidade*:</label> 
-                <input type="number"  name="quantidade" class="input" min="0" max="10000"></p> 
+                <table>
+                    <p>Produto: Bujão de Gás 13KG MTL-S&A </p> 
+                    <tr><td class="tdForm"><label class= "labelForm">Quantidade*:</label></td> 
+                    <td class="tdForm"><input type="number"  name="quantidade" class="input" min="0" max="10000"></td></tr> 
 
-                <p><label class= "labelForm">Cliente:</label>        
-                <input type="text"  name="cliente" class="input"> </p>         
-                  
-                <p><label class= "labelForm">Valor Unitário*: R$</label>
-                <input type="text" id="valorUnitario" name="valorUnitario" class="input" 
-                autocomplete= "off"
-                onkeyup="mascara_reais()"
-                placeholder="0.000,00"> </p> 
+                    <tr><td class="tdForm"><label class= "labelForm">Cliente:</label></td>        
+                    <td class="tdForm"><input type="text"  name="cliente" class="input"> </td> </tr>        
+                    
+                    <tr><td class="tdForm"><label class= "labelForm">Valor Unitário*: R$</label></td>
+                    <td class="tdForm"><input type="text" id="valorUnitario" name="valorUnitario" class="input" 
+                    autocomplete= "off"
+                    onkeyup="mascara_reais()"
+                    placeholder="0.000,00"> </td></tr> 
+                
 
-                <input type="reset" value="Limpar" class="button">
-                <input type="submit" value="Adicionar Venda" class="button">     
+                    <td class="tdForm"><input type="reset" value="Limpar" class="button"></td>
+                    <td class="tdForm"><input type="submit" value="Adicionar Venda" class="button"> </td>
+                </table>    
                                        
         </form>
         
@@ -55,11 +58,11 @@
         <?php
                 include_once("models/vendaDAO.php");
                 include_once("models/compraDAO.php");                
-                include_once("custom_values.php");
-                include_once("util.php");
+                include_once("helpers/custom_values.php");
+                include_once("helpers/util.php");
 
                 $infoVenda = VendaDAO::getInfo(null,null);
-                $infoCompra = CompraDAO::getInfo();
+                $infoCompra = CompraDAO::getInfo(null, null);
                 $estoqueTotal = $infoCompra->quantidade -$infoVenda->quantidade;
                 $preçoSujerido= $infoCompra->valorMedio * (CustomValues::getMargemDeVenda()+1);
 
