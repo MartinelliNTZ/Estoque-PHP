@@ -54,14 +54,7 @@
         echo "<tr>";
         echo "<td>Tipo</td><td>Ocorrencias</td><td>Quantidade</td><td>Valor movimentado</td><td>Preço médio</td>";
         echo "</tr>";
-        //Linha de vendas
-        echo "<tr>";
-        echo "<td>Vendas</td>";
-        echo "<td>".$infoVenda->numVendas."</td>";
-        echo "<td>".$infoVenda->quantidade."</td>";
-        echo "<td>R$ ".number_format(($infoVenda->montante), 2, ',', '.')."</td>";
-        echo "<td>R$ ".number_format(($infoVenda->valorMedio), 2, ',', '.')."</td>";
-        echo "</tr>";
+
         //linha de compras
         echo "</tr>";
         echo "<td>Compras</td>";
@@ -70,6 +63,14 @@
         echo "<td>R$ ".number_format(($infoCompra->montante), 2, ',', '.')."</td>";
         echo "<td>R$ ".number_format(($infoCompra->valorMedio), 2, ',', '.')."</td>";
         echo "<tr>";
+         //Linha de vendas
+        echo "<tr>";
+        echo "<td>Vendas</td>";
+        echo "<td>".$infoVenda->numVendas."</td>";
+        echo "<td>".$infoVenda->quantidade."</td>";
+        echo "<td>R$ ".number_format(($infoVenda->montante), 2, ',', '.')."</td>";
+        echo "<td>R$ ".number_format(($infoVenda->valorMedio), 2, ',', '.')."</td>";
+        echo "</tr>";
         echo "</table>";
         $estoqueTotal = $infoCompra->quantidade -$infoVenda->quantidade;
         $p =($infoVenda->valorMedio) / ($infoCompra->valorMedio);
