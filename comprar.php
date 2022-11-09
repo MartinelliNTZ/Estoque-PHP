@@ -63,7 +63,7 @@
         include_once("custom_values.php");
         include_once("util.php");
 
-        $infoVenda = VendaDAO::getInfo();
+        $infoVenda = VendaDAO::getInfo(null,null);
         $infoCompra = CompraDAO::getInfo();
         $estoqueTotal = $infoCompra->quantidade -$infoVenda->quantidade;
         $preçoMedioCompra= $infoCompra->valorMedio;

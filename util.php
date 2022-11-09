@@ -1,8 +1,7 @@
 <?php
     class Util {
-
-               /**
-         * Função que converte numeros em 88.888,00 em float */
+        /**
+         * Função que converte numeros do tipo 88.888,00 em float */
         static function converter ( $valorUnitario){
             $source =array(".",",");
             $replace = array("", ".");
@@ -25,11 +24,6 @@
             $data = $agora->format('Y-m-d H:i:s');
             return $data;
         }
-        
-
-     
-        
-       
     }
 
 

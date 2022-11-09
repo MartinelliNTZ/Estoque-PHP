@@ -74,24 +74,27 @@
             } 
             $m = number_format($montante, 2, ',', '.');
             echo "<p><label class= 'labelForm'>Vendas:$numVendas</label> 
-                        <label class= 'labelForm'>Quantidade:$quantidade</label>
-                        <label class= 'labelForm'>Montante:R$ $m</label>
+                        <label class= 'labelForm'>Quantidade:".$quantidade.
+                        "</label>
+                        <label class= 'labelForm'>Montante:R$ ".$m."</label>
             </p>";
 
         }
 
-        static function getInfo(){
+        static function getInfo($dataInicial, $dataFinal){
+            include("conecta.php");  
+            include_once("info.php"); 
             $numVendas = 0;
             $quantidade = 0;
             $montante = 0;
             $valorMedio = 0;
-
-            include("conecta.php");  
-            include_once("info.php");    
-            $sql   ="SELECT * FROM estoque_compra";         
-            
-            $result = $conn->query($sql);
-        
+            if($dataInicial==null || $dataFinal==null){
+                $sql  ="SELECT  * FROM estoque_venda  ";                 
+            }else{
+                $sql   ="SELECT * FROM estoque_venda WHERE data BETWEEN '$dataInicial' AND '$dataFinal' "; 
+            }               
+                
+            $result = $conn->query($sql);        
             if($result->num_rows > 0  ){              
                 while($row = $result->fetch_assoc()){
                     $total = $row['quantidade']*$row['valorUnitario'];

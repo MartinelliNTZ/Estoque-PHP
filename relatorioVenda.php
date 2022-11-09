@@ -47,22 +47,12 @@
         <div class="containerPainel">
        
         <?php
+        include_once('models/vendaDAO.php');           
 
+        if(isset($_POST["datainicial"])){    $datainicial = $_POST["datainicial"];}        else{$datainicial = null;}
+        if(isset($_POST["dataFinal"])){       $dataFinal = $_POST["dataFinal"];}              else{$dataFinal = null;}
             
-
-            if(isset($_POST["datainicial"])){    $datainicial = $_POST["datainicial"];}        else{$datainicial = null;}
-            if(isset($_POST["dataFinal"])){       $dataFinal = $_POST["dataFinal"];}              else{$dataFinal = null;}
-            include_once('models/vendaDAO.php');
-            if($datainicial!=null & $dataFinal!=null){
-                echo "<p>Pesquisa entre '$datainicial' e '$dataFinal'</p>";
-                echo "<p>-------------------------------------------------------------------------------------------------------------------------</p>";
-                VendaDAO::listarComFiltro($datainicial, $dataFinal);
-            }else{
-                echo "<p>Exibindo todas as vendas</p>";
-                VendaDAO::listar();
-            }
-
-            
+        VendaDAO::listar($datainicial, $dataFinal);           
 
         ?>
         </div>

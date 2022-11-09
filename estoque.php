@@ -45,10 +45,12 @@
         <div class="containerPainel">
        
         <?php
+        if(isset($_POST["datainicial"])){    $dataInicial = $_POST["datainicial"];}        else{$dataInicial = null;}
+        if(isset($_POST["dataFinal"])){       $dataFinal = $_POST["dataFinal"];}              else{$dataFinal = null;}
         include_once('models/compraDAO.php');
         include_once('models/vendaDAO.php');
-        $infoVenda = VendaDAO::getInfo();
-        $infoCompra = CompraDAO::getInfo();
+        $infoVenda = VendaDAO::getInfo($dataInicial, $dataFinal);
+        $infoCompra = CompraDAO::getInfo($dataInicial, $dataFinal);
         echo "<table>";
         //Cabeçalho
         echo "<tr>";
