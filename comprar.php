@@ -55,15 +55,30 @@
                 <input type="submit" value="Adicionar Compra" class="button">     
                                        
         </form>
-        </div>
-        <div class="containerPainel">
        
         <?php
+        include_once("conecta.php");
+        include_once("models/vendaDAO.php");
+        include_once("models/compraDAO.php");                
+        include_once("custom_values.php");
+        include_once("util.php");
+
+        $infoVenda = VendaDAO::getInfo();
+        $infoCompra = CompraDAO::getInfo();
+        $estoqueTotal = $infoCompra->quantidade -$infoVenda->quantidade;
+        $preçoMedioCompra= $infoCompra->valorMedio;
+
+        $estoqueMaximo = CustomValues::getEstoqueMaximo();
+        echo "<p>Em estoque: $estoqueTotal    
+        Estoque maximo: $estoqueMaximo
+         Preço Médio de compra R$". number_format($preçoMedioCompra,2,",",".")."</p>";
+        echo "</div><div class='containerPainel'>";
+
         if(isset($_POST["quantidade"])){    $quantidade = $_POST["quantidade"];}        else{ $quantidade = null;}
         if(isset($_POST["valorUnitario"])){ $valorUnitario = $_POST["valorUnitario"];}  else{ $valorUnitario = null;}
         if(isset($_POST["fornecedor"])){    $fornecedor = $_POST["fornecedor"];}        else{ $fornecedor = null;}
         if($quantidade !=null & $quantidade >0){ 
-            include("conecta.php");
+            
 
             $data = dataAtual();
             $valor = converter($valorUnitario);/**Falta adicionar ao banco */          
@@ -77,11 +92,16 @@
                 echo "<p>Compradas $quantidade unidades.
                 A R$$valorUnitario cada. Totalizando: R$$valorTotal.
                 <p>";               
-               
+                if($estoqueTotal<$estoqueTotal+$quantidade){
+                    echo "<p id='alerta'>Quantidade ultrapassou o estoque maximo definido. Novo estoque: ".$estoqueTotal."</p>";
+                }
                
             } else {
                 echo "<p>Error: " . $sql . "<br>" . $conn->error."</p>";
             }
+            
+                
+            
 
 
 
