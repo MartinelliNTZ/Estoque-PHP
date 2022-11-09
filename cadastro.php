@@ -29,17 +29,24 @@
     <main>
         <div class="containerPainel">
         
-            <form  method ="POST" action="relatorioCompra.php">
-                    <p>Produto: Bujão de Gás 13KG MTL-S&A </p> 
+        <form  method ="POST" action="cadastro.php">
+            <table>
+                <p>Produto: Bujão de Gás 13KG MTL-S&A </p> 
+                <tr><td class="tdForm"><label class= "labelForm">Nome do Produto*:</label></td> 
+                <td class="tdForm"><input type="text"  name="nomeProduto" class="input" min="0" max="10000"></tr></td> 
 
-                    <p><label class= "labelForm">Inicio:</label> 
-                    <input type="date"  name="datainicial" class="" min="0" max="10000"> 
-                    <label class= "labelForm">Fim:</label> 
-                    <input type="date"  name="dataFinal" class="" min="0" max="10000">                        
-                    <input type="submit" value="Pesquisar" class="button"> 
-                    <input type="reset" value="Limpar" class="button"></p>    
-                                        
-            </form>
+                <tr><td class="tdForm"><label class= "labelForm">Estoque minímo:</label></td>        
+                <td class="tdForm"><input type="number"  name="estoqueMinimo" class="input"> </tr></td>         
+                <tr><td class="tdForm"><label class= "labelForm">Estoque máximo:</label></td>        
+                <td class="tdForm"><input type="number"  name="estoqueMaximo" class="input"> </tr></td> 
+                <tr><td class="tdForm"><label class= "labelForm">Porcentagem de lucro</label></td>
+                <td class="tdForm"><input type="number" name = "porcentagem"
+                placeholder="25" class="input"> </tr></td> 
+
+                <tr><td class="tdForm"><input type="reset" value="Limpar" class="button"></td>
+                <td class="tdForm"><input type="submit" value="Adicionar Compra" class="button"></tr></td>     
+            </table>                           
+        </form>
             </div>
         <div class="containerPainel">
        
