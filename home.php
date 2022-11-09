@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Titulo do site</title>
+    <title>Gás Estoque</title>
     <link rel= "stylesheet" href = "style/estiloPadrao.css">
     <link rel= "stylesheet" href = "style/classesStyle.css">
     <link rel= "stylesheet" href = "style/idsStyle.css">
@@ -15,8 +15,7 @@
 <body>
     
     <ul><!--Lista de botoes de cabeçalho-->
-        <li><a href="index.html">Página Inicial</a></li>
-        <li><a href="home.php">Home</a></li>
+        <li><a href="home.php">Página Inicial</a></li>
         <li><a href="cadastro.php">Cadastro</a></li>
         <li><a href="estoque.php">Estoque</a></li>
         <li><a href="vender.php">Vender</a></li>
@@ -31,7 +30,15 @@
     <main>
         <div class="containerPainel">
 
-            <p>Dash Board</p>
+            <p>Bem vindo ao Gás Estoque o melhor sistema de estoque para empresas de gás do mercado
+                estamos a mais de 100 anos no mercado (* se cada hora valesse um ano). Temos uma sólida infra estrutura
+                e um sistema pensado na qualidade e na facilidade para o consumidor final.
+            </p>
+            <p>Sabemos que não chegamos até aqui sozinhos, temos a agradecer aos nosso milhares de clientes
+                por isso nosso foco é sempre na qualidade para ajudar ao maximo que sempre nos ajudou.
+            </p>
+            <p>Eai? Vamos começar?
+            </p>
            
         </div>
 

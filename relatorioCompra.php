@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Titulo do site</title>
+    <title>Gás Estoque</title>
     <link rel= "stylesheet" href = "style/estiloPadrao.css">
     <link rel= "stylesheet" href = "style/classesStyle.css">
     <link rel= "stylesheet" href = "style/idsStyle.css">
@@ -13,8 +13,7 @@
 </head>
 <body>
     <ul><!--Lista de botoes de cabeçalho-->
-        <li><a href="index.html">Página Inicial</a></li>
-        <li><a href="home.php">Home</a></li>
+        <li><a href="home.php">Página Inicial</a></li>
         <li><a href="cadastro.php">Cadastro</a></li>
         <li><a href="estoque.php">Estoque</a></li>
         <li><a href="vender.php">Vender</a></li>
