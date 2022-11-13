@@ -44,10 +44,11 @@
         <div class="containerPainel">
        
         <?php
-        if(isset($_POST["datainicial"])){    $dataInicial = $_POST["datainicial"];}        else{$dataInicial = null;}
-        if(isset($_POST["dataFinal"])){       $dataFinal = $_POST["dataFinal"];}              else{$dataFinal = null;}
         include_once('models/compraDAO.php');
         include_once('models/vendaDAO.php');
+        if(isset($_POST["datainicial"])){    $dataInicial = $_POST["datainicial"];}        else{$dataInicial = null;}
+        if(isset($_POST["dataFinal"])){       $dataFinal = $_POST["dataFinal"];}              else{$dataFinal = null;}
+
         $infoVenda = VendaDAO::getInfo($dataInicial, $dataFinal);
         $infoVendaGeral = VendaDAO::getInfo(null, null);
         $infoCompra = CompraDAO::getInfo($dataInicial, $dataFinal);
