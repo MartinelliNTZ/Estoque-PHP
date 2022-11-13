@@ -6,7 +6,7 @@
  - Vendas por Periodo       OK
  - Compras por Periodo      OK
  - Estoque Minimo           OK
- - Estoque Máximo           OK
+ - Estoque Máximo           OK6
  - Cadastro de produtos (Vai alterar toda a estrutura do projeto)
 
 
