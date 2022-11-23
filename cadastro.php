@@ -30,10 +30,10 @@
         <div class="containerPainel">
         
         <form  method ="POST" action="cadastro.php">
-            <table>
-                <p>Produto: Bujão de Gás 13KG MTL-S&A </p> 
+            <br>
+            <table>                
                 <tr><td class="tdForm"><label class= "labelForm">Nome do Produto*:</label></td> 
-                <td class="tdForm"><input type="text"  name="nomeProduto" class="input" min="0" max="10000"></tr></td> 
+                <td class="tdForm"><input type="text"  name="nome" class="input" min="0" max="10000"></tr></td> 
 
                 <tr><td class="tdForm"><label class= "labelForm">Estoque minímo:</label></td>        
                 <td class="tdForm"><input type="number"  name="estoqueMinimo" class="input"> </tr></td>         
@@ -44,14 +44,19 @@
                 placeholder="25" class="input"> </tr></td> 
 
                 <tr><td class="tdForm"><input type="reset" value="Limpar" class="button"></td>
-                <td class="tdForm"><input type="submit" value="Adicionar Compra" class="button"></tr></td>     
+                <td class="tdForm"><input type="submit" value="Cadastrar produto" class="button"></tr></td>     
             </table>                           
         </form>
             </div>
         <div class="containerPainel">
        
         <?php
-  
+            if(isset($_POST["nome"])){    $nome = $_POST["nome"];}        else{ $nome = null;}
+
+            if($nome != null){
+                echo "<p> Sucesso ao cadastrar $nome</p>";
+            }
+
         ?>
         </div>
     </main>
