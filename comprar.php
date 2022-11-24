@@ -91,8 +91,9 @@
                 $valorTotal = number_format($valorTotal,2,",",".");
                 echo "<p>Compradas $quantidade unidades.
                 A R$$valorUnitario cada. Totalizando: R$$valorTotal.
-                <p>";               
-                if($estoqueTotal<$estoqueTotal+$quantidade){
+                <p>";  
+                $estoqueTotal+=$quantidade;          
+                if($estoqueTotal>=$estoqueMaximo){
                     echo "<p id='alerta'>Quantidade ultrapassou o estoque maximo definido. Novo estoque: ".$estoqueTotal."</p>";
                 }
                

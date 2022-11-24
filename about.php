@@ -40,7 +40,7 @@
 
             </p>    
             <p id="p_about">Projeto iniciado em 31 de outubro de 2022</p>    
-            <p id="p_about">Projeto finalizado em .........</p>    
+            <p id="p_about">Projeto finalizado em 23 de novembro de 2022</p>    
             <p id="about"> Desenvolvido por Matheus Martinelli &copy; 2022</p>
 
 

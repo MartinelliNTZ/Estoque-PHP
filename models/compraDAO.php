@@ -19,7 +19,7 @@
                 $message = "<p >Exibindo todas as compras desde o inicio</p>
                 <p>-------------------------------------------------------------------------------------------------------------------------</p>";
             }else{
-                $message = "<p >Pesquisa entre ".$dataInit." e $dataFinal</p>
+                $message = "<p >Pesquisa entre ".$dataInicial." e $dataFinal</p>
                 <p>-------------------------------------------------------------------------------------------------------------------------</p>";
                 $sql   ="SELECT * FROM estoque_compra WHERE data BETWEEN '$dataInicial' AND '$dataFinal' "; 
             }  
